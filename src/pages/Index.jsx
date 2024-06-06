@@ -33,7 +33,7 @@ const Index = () => {
             value={task}
             onChange={(e) => setTask(e.target.value)}
           />
-          <Button onClick={addTask} colorScheme="teal">Add Task</Button>
+          <Button onClick={addTask} colorScheme="red">Add Task</Button>
         </HStack>
         <VStack w="100%" spacing={3} mt={5}>
           {tasks.map((t, index) => (
