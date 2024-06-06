@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { Container, VStack, HStack, Input, Button, Text, Box, Checkbox, IconButton } from "@chakra-ui/react";
-import { FaTrash } from "react-icons/fa";
+import { Container, VStack, HStack, Input, Button, Text, Box, Checkbox, IconButton, Flex, Link, Spacer } from "@chakra-ui/react";
+import { FaTrash, FaFacebook, FaTwitter, FaLinkedin } from "react-icons/fa";
 
 const Index = () => {
   const [tasks, setTasks] = useState([]);
@@ -51,8 +51,37 @@ const Index = () => {
           ))}
         </VStack>
       </VStack>
+      <Footer />
     </Container>
   );
 };
+
+const Footer = () => (
+  <Box as="footer" py={4} bg="gray.800" color="white" mt={10}>
+    <Container maxW="container.md">
+      <Flex direction={{ base: "column", md: "row" }} align="center" justify="space-between">
+        <Text fontSize="lg" mb={{ base: 4, md: 0 }}>Todo App - Organize your tasks efficiently</Text>
+        <HStack spacing={4}>
+          <Link href="/" color="white">Home</Link>
+          <Link href="/about" color="white">About</Link>
+          <Link href="/contact" color="white">Contact</Link>
+        </HStack>
+        <Spacer />
+        <HStack spacing={4}>
+          <Link href="https://facebook.com" isExternal>
+            <FaFacebook size="24px" />
+          </Link>
+          <Link href="https://twitter.com" isExternal>
+            <FaTwitter size="24px" />
+          </Link>
+          <Link href="https://linkedin.com" isExternal>
+            <FaLinkedin size="24px" />
+          </Link>
+        </HStack>
+      </Flex>
+      <Text textAlign="center" mt={4} fontSize="sm">© {new Date().getFullYear()} Todo App. All rights reserved.</Text>
+    </Container>
+  </Box>
+);
 
 export default Index;
